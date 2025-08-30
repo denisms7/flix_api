@@ -1,4 +1,5 @@
 from pathlib import Path
+from datetime import timedelta
 import os
 from django.contrib.messages import constants as messages
 
@@ -145,4 +146,10 @@ REST_FRAMEWORK = {
 
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     )
+}
+
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(hours=4),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
 }

@@ -1,4 +1,4 @@
-# Flix Api
+# Flix API
 
 
 ## 🎬 API de Catálogo de Filmes
@@ -13,7 +13,7 @@ Esta aplicação é uma API REST desenvolvida com Django Rest Framework (DRF) qu
 
 ⭐ Reviews – Avaliações com comentários e estrelas atribuídas pelos usuários.
 
-🔐 Autenticação e Permissões
+🔐 Autenticação e Permissões  via Django Admin
 
 A autenticação é realizada via JWT (JSON Web Token), garantindo segurança e praticidade.
 O acesso é controlado por grupos de usuários, permitindo diferentes níveis de permissão (ex.: administradores, editores e usuários comuns).

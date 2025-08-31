@@ -85,10 +85,12 @@ Resposta:
 }
 ```
 Atualizar token
+```
 POST /api/v1/authentication/token/refresh/
 {
     "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOi..."
 }
+```
 
 ## 📌 Endpoints Principais
 

@@ -1,4 +1,4 @@
-# Flix API
+# Flix API RESTful
 
 
 ## 🎬 API de Catálogo de Filmes

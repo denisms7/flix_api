@@ -41,4 +41,3 @@ class MovieSerializer(serializers.ModelSerializer):
         if value.year < 1888:
             raise serializers.ValidationError('A data de lançamento não pode ser anterior a 1888.')
         return value
-

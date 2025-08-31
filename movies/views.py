@@ -11,7 +11,6 @@ from django.utils import timezone
 class MovieAddList(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated, GlobalPermission,)
     queryset = Movie.objects.all()
-    serializer_class = MovieSerializer
 
     def get_serializer_class(self):
         if self.request.method == 'GET':
@@ -22,7 +21,11 @@ class MovieAddList(generics.ListCreateAPIView):
 class MovieDetEditDel(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthenticated, GlobalPermission,)
     queryset = Movie.objects.all()
-    serializer_class = MovieSerializer
+
+    def get_serializer_class(self):
+        if self.request.method == 'GET':
+            return MovieSerializerDetail
+        return MovieSerializer
 
 
 class MovieStatsView(views.APIView):

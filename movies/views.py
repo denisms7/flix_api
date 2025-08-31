@@ -10,13 +10,15 @@ from django.utils import timezone
 
 class MovieAddList(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated, GlobalPermission,)
-    queryset  = Movie.objects.all()
+    queryset = Movie.objects.all()
     serializer_class = MovieSerializer
+
 
 class MovieDetEditDel(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthenticated, GlobalPermission,)
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
+
 
 class MovieStatsView(views.APIView):
     permission_classes = (IsAuthenticated, GlobalPermission,)
@@ -33,9 +35,9 @@ class MovieStatsView(views.APIView):
             data={
                 'date_time': date_time,
                 'total_movies': total_movies,
-                'movies_by_genre': movies_by_genre, 
+                'movies_by_genre': movies_by_genre,
                 'total_reviews': total_reviews,
-                'average_stars': round(average_stars,1) if average_stars is not None else 0,
+                'average_stars': round(average_stars, 1) if average_stars is not None else 0,
             },
             status=status.HTTP_200_OK
         )

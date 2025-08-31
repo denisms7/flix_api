@@ -1,6 +1,6 @@
 from rest_framework import generics
 from .models import Actor
-from .serializer import ActorSerializer
+from .serializers import ActorSerializer
 from rest_framework.permissions import IsAuthenticated
 from app.permissions import GlobalPermission
 

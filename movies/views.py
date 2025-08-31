@@ -3,7 +3,7 @@ from django.db.models import Count, Avg
 from rest_framework.permissions import IsAuthenticated
 from .models import Movie
 from reviews.models import Review
-from .serializers import MovieSerializer
+from .serializers import MovieSerializer, MovieSerializerDetail
 from app.permissions import GlobalPermission
 from django.utils import timezone
 
@@ -12,6 +12,11 @@ class MovieAddList(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated, GlobalPermission,)
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
+
+    def get_serializer_class(self):
+        if self.request.method == 'GET':
+            return MovieSerializerDetail
+        return MovieSerializer
 
 
 class MovieDetEditDel(generics.RetrieveUpdateDestroyAPIView):

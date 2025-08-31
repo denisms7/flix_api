@@ -7,6 +7,7 @@ from .serializers import MovieSerializer
 from app.permissions import GlobalPermission
 from django.utils import timezone
 
+
 class MovieAddList(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated, GlobalPermission,)
     queryset  = Movie.objects.all()
@@ -17,7 +18,6 @@ class MovieDetEditDel(generics.RetrieveUpdateDestroyAPIView):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
 
-
 class MovieStatsView(views.APIView):
     permission_classes = (IsAuthenticated, GlobalPermission,)
     queryset = Movie.objects.all()
@@ -27,7 +27,7 @@ class MovieStatsView(views.APIView):
         movies_by_genre = self.queryset.values('genre__name').annotate(count=Count('id'))
         total_reviews = Review.objects.count()
         average_stars = Review.objects.aggregate(avg_stars=Avg('stars'))['avg_stars']
-        date_time = timezone.now()
+        date_time = timezone.localtime(timezone.now()).isoformat()
 
         return response.Response(
             data={

@@ -34,56 +34,56 @@ SimpleJWT
 ## 🛠️ Instalação e Configuração
 
 Clone o repositório
-'''
+```
 git clone https://github.com/seu-usuario/flix-api.git
 cd flix-api
-'''
+```
 
 Crie e ative um ambiente virtual
-'''
+```
 python -m venv venv
 source venv/bin/activate   # Linux/Mac
 venv\Scripts\activate      # Windows
-'''
+```
 
 Instale as dependências
 
-'''
+```
 pip install -r requirements.txt
-'''
+```
 
 Aplique as migrações
-'''
+```
 python manage.py migrate
-'''
+```
 
 Crie um superusuário
-'''
+```
 python manage.py createsuperuser
-'''
+```
 Execute o servidor
-'''
+```
 python manage.py runserver
-'''
+```
 
 ## 🔐 Autenticação (JWT)
 
 Obter token de acesso
 
-'''
+```
 POST /api/v1/authentication/token/
 {
     "username": "seu_usuario",
     "password": "sua_senha"
 }
-'''
+```
 Resposta:
-'''
+```
 {
     "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOi...",
     "access": "eyJ0eXAiOiJKV1QiLCJhbGciOi..."
 }
-'''
+```
 Atualizar token
 POST /api/v1/authentication/token/refresh/
 {
@@ -121,7 +121,7 @@ PUT PATCH DEL  /api/v1/review/ID → Edita, Visualiza e deleta avaliação
 
 Filme
 
-'''
+```
     {
         "id": 1,
         "rate": 2.9,
@@ -134,4 +134,4 @@ Filme
             4
         ]
     }
-'''
+```

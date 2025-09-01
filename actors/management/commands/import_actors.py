@@ -4,6 +4,7 @@ from datetime import datetime
 from actors.models import Actor
 from django.db import IntegrityError, DataError
 
+
 class Command(BaseCommand):
 
     def add_arguments(self, parser):
@@ -15,14 +16,14 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         file_name = options['file_name']
-        
+
         with open(file_name, 'r', encoding='utf-8') as file:
             reader = csv.DictReader(file)
             for row in reader:
                 name = row['name']
                 birthday = datetime.strptime(row['birthday'], '%Y-%m-%d').date()
                 nationality = row['nationality']
-                
+
                 try:
                     Actor.objects.create(
                         name=name,
